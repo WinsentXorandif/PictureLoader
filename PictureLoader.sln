@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniTask.DOTween", "UniTask.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{05333E32-4A69-350D-AE11-D215E10FD06B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{C83FA2C1-1921-13D0-8DE4-68B502221855}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniTask.TextMeshPro", "UniTask.TextMeshPro.csproj", "{C6A040F7-4C82-7053-7787-C0E313E846FE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniTask.Addressables", "UniTask.Addressables.csproj", "{ABB771B4-1E4F-6185-68D0-A8F9D34E75E4}"
@@ -37,6 +39,10 @@ Global
 		{05333E32-4A69-350D-AE11-D215E10FD06B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05333E32-4A69-350D-AE11-D215E10FD06B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05333E32-4A69-350D-AE11-D215E10FD06B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C83FA2C1-1921-13D0-8DE4-68B502221855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83FA2C1-1921-13D0-8DE4-68B502221855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83FA2C1-1921-13D0-8DE4-68B502221855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83FA2C1-1921-13D0-8DE4-68B502221855}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C6A040F7-4C82-7053-7787-C0E313E846FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C6A040F7-4C82-7053-7787-C0E313E846FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6A040F7-4C82-7053-7787-C0E313E846FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
