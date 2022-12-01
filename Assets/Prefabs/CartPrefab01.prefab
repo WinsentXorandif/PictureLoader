@@ -205,7 +205,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7225284614219547180}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -283,3 +283,5 @@ MonoBehaviour:
   forwardImage: {fileID: 7225284613233787998}
   loadImage: {fileID: 7225284613852350991}
   backImage: {fileID: 7225284614219547178}
+  forwardSprite: {fileID: 21300000, guid: def53f45f5e78574b935e889284f84f6, type: 3}
+  backSprite: {fileID: 21300000, guid: c53061916e6e61f40ba4c8883586bca3, type: 3}

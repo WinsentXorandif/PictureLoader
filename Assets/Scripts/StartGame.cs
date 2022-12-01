@@ -35,7 +35,45 @@ public class StartGame : MonoBehaviour
         Debug.Log("OnCancel");
     }
 
+    //=================================================
+    /*
+    private async void Start()
+    {
+        var textures =
+            await UniTask.WhenAll(_imageUrls.Select(DownloadImageAsync));
 
+        for (var i = 0; i < textures.Length; i++)
+        {
+            _images[i].texture = textures[i];
+        }
+    }
+
+
+    public async UniTaskVoid StartOperation(CancellationToken token = default)
+    {
+        _image.texture = await DownloadImageAsync(_imageUrl, token);
+    }
+    //----------------------------------------------------
+    private async UniTask<Texture2D> DownloadImageAsync(string imageUrl,
+       CancellationToken token)
+    {
+        var request = UnityWebRequestTexture.GetTexture(imageUrl);
+
+        try
+        {
+            await request.SendWebRequest().WithCancellation(token);
+
+            return request.result == UnityWebRequest.Result.Success
+                ? DownloadHandlerTexture.GetContent(request)
+                : null;
+        }
+        finally
+        {
+            request.Dispose();
+        }
+    }
+    */
+    //=================================================
 
     public async UniTask DownloadImagesAsync()
     {

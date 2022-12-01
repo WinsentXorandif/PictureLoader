@@ -14,7 +14,7 @@ public static class ImageDownloader
 
         using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(url))
         {
-            await request.SendWebRequest();
+            await request.SendWebRequest();//.WithCancellation(tok);
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.Log($"Error in downloading image : {request.error}");
