@@ -1,4 +1,6 @@
+using System;
 using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
 using static ImageUtilties;
 
@@ -6,10 +8,35 @@ public class StartGame : MonoBehaviour
 {
     private const string ImageURL = "https://picsum.photos/200";
 
+    private readonly List<string> ImageURLs = new();
+
+    private Dictionary<LoadOperation, ILoadOperation> LoadOperationsDict = new();
+
     [SerializeField]
     private UIControl uiControl;
 
 
+
+    private void InitURLlist() 
+    {
+        for (int i = 0; i < uiControl.cartPanel.carts.Length; i++)
+        {
+            ImageURLs.Add(ImageURL);
+        }
+    }
+
+    private void InitOperationDict() 
+    {
+        LoadOperationsDict.Add(LoadOperation.oneByOne, new OnceLoad(ImageURL, uiControl));
+        LoadOperationsDict.Add(LoadOperation.allAtOnce, new MultyLoad(ImageURLs, uiControl));
+        LoadOperationsDict.Add(LoadOperation.whenImageReady, new MultyLoad(ImageURLs, uiControl));
+    }
+
+    private void Awake()
+    {
+        InitURLlist();
+        InitOperationDict();
+    }
 
     private void OnEnable()
     {
@@ -25,8 +52,10 @@ public class StartGame : MonoBehaviour
 
     private void OnLoadPicture(int opt)
     {
-        Debug.Log($"OnLoadPicture =>> opt = {opt}");
-        _ = DownloadImagesAsync();
+        //Debug.Log($"OnLoadPicture =>> opt = {opt}");
+        //_ = DownloadImagesAsync();
+
+        LoadOperationsDict[(LoadOperation)opt].LoadOperation();
 
     }
 
@@ -74,7 +103,7 @@ public class StartGame : MonoBehaviour
     }
     */
     //=================================================
-
+    /*
     public async UniTask DownloadImagesAsync()
     {
         //image1.texture = await DownloadJPGImage(firstImageURL, "first");
@@ -98,22 +127,11 @@ public class StartGame : MonoBehaviour
         return img;
     }
     */
-
+    /*
     public async UniTask<Sprite> DownloadPNGImage(string url, string name)
     {
         Texture2D img = await ImageDownloader.DownloadImage(url, name, FileFormat.PNG);
         return Sprite.Create(img, new Rect(0, 0, img.width, img.height), new Vector2(0.5f, 0.5f));
     }
-
-
-
-    void Start()
-    {
-        Debug.Log(Application.persistentDataPath);
-    }
-
-    void Update()
-    {
-
-    }
+    */
 }

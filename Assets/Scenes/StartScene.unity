@@ -681,7 +681,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 1.03, y: 8.47, z: 8.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -957,6 +957,7 @@ GameObject:
   - component: {fileID: 888881855}
   - component: {fileID: 888881854}
   - component: {fileID: 888881853}
+  - component: {fileID: 888881856}
   m_Layer: 5
   m_Name: CardsPanel
   m_TagString: Untagged
@@ -1053,6 +1054,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888881851}
   m_CullTransparentMesh: 1
+--- !u!114 &888881856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888881851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e8bf730e28b75489220cb2a4d0ab16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carts:
+  - {fileID: 1039000150}
+  - {fileID: 1567971551}
+  - {fileID: 1869527224}
+  - {fileID: 1576813296}
+  - {fileID: 2038558582}
 --- !u!1 &936532265
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,12 +1435,7 @@ MonoBehaviour:
   switchOperations: {fileID: 1458302625}
   loadButton: {fileID: 803111686}
   cancelButton: {fileID: 358198383}
-  carts:
-  - {fileID: 1039000150}
-  - {fileID: 1567971551}
-  - {fileID: 1869527224}
-  - {fileID: 1576813296}
-  - {fileID: 2038558582}
+  cartPanel: {fileID: 888881856}
 --- !u!1 &1240491174
 GameObject:
   m_ObjectHideFlags: 0
