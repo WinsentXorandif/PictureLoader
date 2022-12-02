@@ -1,13 +1,10 @@
-using UnityEngine;
-using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-
-
+using UnityEngine;
+using UnityEngine.UI;
 
 public class CartControl : MonoBehaviour
 {
-
     [SerializeField]
     private Image forwardImage;
     [SerializeField]
@@ -40,8 +37,7 @@ public class CartControl : MonoBehaviour
         tmpSprite = newSprite;
     }
 
-
-    public async UniTask OpenCartShow() 
+    public async UniTask OpenCartShow()
     {
         await transform.DOLocalRotate(new Vector3(0, 90f, 0), 0.5f, RotateMode.Fast).SetEase(Ease.Linear).AsyncWaitForCompletion();
         forwardImage.sprite = forwardSprite;

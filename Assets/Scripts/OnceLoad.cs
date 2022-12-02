@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Cysharp.Threading.Tasks;
 using System.Threading;
-using Unity.VisualScripting.Antlr3.Runtime;
+using UnityEngine;
 using static ImageUtilties;
-using System;
 
 public class OnceLoad : ILoadOperation
 {
@@ -14,14 +10,12 @@ public class OnceLoad : ILoadOperation
 
     private CancellationTokenSource cts;
 
-
-    public OnceLoad(string url, UIControl uI) 
+    public OnceLoad(string url, UIControl uI)
     {
         urlString = url;
         uiControl = uI;
     }
-
-    public void ONCansel() 
+    public void ONCansel()
     {
         cts?.Cancel();
     }

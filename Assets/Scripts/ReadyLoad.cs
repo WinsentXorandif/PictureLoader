@@ -1,6 +1,4 @@
 using Cysharp.Threading.Tasks;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using static ImageUtilties;
@@ -10,7 +8,7 @@ public class ReadyLoad : ILoadOperation
     private string urlString;
     private UIControl uiControl;
 
-    private CancellationTokenSource cts; 
+    private CancellationTokenSource cts;
     private int ind;
 
     public ReadyLoad(string url, UIControl uI)
@@ -25,13 +23,12 @@ public class ReadyLoad : ILoadOperation
         cts?.Cancel();
     }
 
-
     public async UniTask LoadOperation()
     {
         ind = 0;
         cts = new CancellationTokenSource();
 
-        foreach (var cc in uiControl.cartPanel.carts) 
+        foreach (var cc in uiControl.cartPanel.carts)
         {
             await cc.FinishAllRotateReady(0.6f);
         }
@@ -44,7 +41,6 @@ public class ReadyLoad : ILoadOperation
 
         uiControl.UnLockButtons();
     }
-
     public async UniTask<Sprite> DownloadPNGImage(string url)
     {
         ind++;
@@ -52,5 +48,4 @@ public class ReadyLoad : ILoadOperation
         Texture2D img = await ImageDownloader.DownloadImage(url, name, FileFormat.PNG, cts.Token);
         return Sprite.Create(img, new Rect(0, 0, img.width, img.height), new Vector2(0.5f, 0.5f));
     }
-
 }

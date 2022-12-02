@@ -1,8 +1,5 @@
-using System;
-using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
-using static ImageUtilties;
 
 public class StartGame : MonoBehaviour
 {
@@ -15,7 +12,7 @@ public class StartGame : MonoBehaviour
     [SerializeField]
     private UIControl uiControl;
 
-    private void InitOperationDict() 
+    private void InitOperationDict()
     {
         LoadOperationsDict.Add(LoadOperation.none, new NoneLoad());
         LoadOperationsDict.Add(LoadOperation.oneByOne, new OnceLoad(ImageURL, uiControl));
@@ -40,7 +37,6 @@ public class StartGame : MonoBehaviour
         uiControl.OnLoadButton -= OnLoadPicture;
         uiControl.OnCancelButton -= OnCancel;
     }
-
     private void OnLoadPicture(int opt)
     {
         tmpOper = (LoadOperation)opt;
@@ -51,5 +47,4 @@ public class StartGame : MonoBehaviour
     {
         LoadOperationsDict[tmpOper].ONCansel();
     }
-
 }

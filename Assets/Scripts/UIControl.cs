@@ -17,13 +17,13 @@ public class UIControl : MonoBehaviour
 
     public CartPanelControl cartPanel;
 
-    public void UnLockButtons() 
+    public void UnLockButtons()
     {
-       switchOperations.interactable = true;
-       loadButton.interactable = true;
+        switchOperations.interactable = true;
+        loadButton.interactable = true;
     }
 
-    private void LockButtons() 
+    private void LockButtons()
     {
         switchOperations.interactable = false;
         loadButton.interactable = false;
@@ -52,7 +52,5 @@ public class UIControl : MonoBehaviour
         OnCancelButton?.Invoke();
         UnLockButtons();
     }
-
-
 
 }

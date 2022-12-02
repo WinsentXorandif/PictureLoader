@@ -1,11 +1,7 @@
 using Cysharp.Threading.Tasks;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Linq;
 using System.Threading;
-using Unity.VisualScripting;
 using UnityEngine;
 using static ImageUtilties;
 
@@ -24,13 +20,10 @@ public class MultyLoad : ILoadOperation
         urlString = url;
         uiControl = uI;
     }
-
     public void ONCansel()
     {
         cts?.Cancel();
     }
-
-
     public async UniTask LoadOperation()
     {
         ind = 0;
@@ -55,6 +48,5 @@ public class MultyLoad : ILoadOperation
         Texture2D img = await ImageDownloader.DownloadImage(url, name, FileFormat.PNG, cts.Token);
         return Sprite.Create(img, new Rect(0, 0, img.width, img.height), new Vector2(0.5f, 0.5f));
     }
-
 
 }
