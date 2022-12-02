@@ -25,16 +25,14 @@ public class OnceLoad : ILoadOperation
 
     private void ONCansel() 
     {
-        Debug.Log("ONCansel()!!! ");
         cts.Cancel();
     }
 
     public async UniTask LoadOperation()
     {
-        Debug.Log("OnceLoad");
         for (int i = 0; i < uiControl.cartPanel.carts.Length; i++)
         {
-            await uiControl.cartPanel.carts[i].CloseCartShow(2);
+            await uiControl.cartPanel.carts[i].CloseCartShow(0.5f);
             uiControl.cartPanel.carts[i].SetNewImage(await DownloadPNGImage(urlString, "picture" + i.ToString()));
             await uiControl.cartPanel.carts[i].OpenCartShow();
         }

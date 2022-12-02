@@ -37,45 +37,19 @@ public class MultyLoad : ILoadOperation
 
     public async UniTask LoadOperation()
     {
-        Debug.Log("MultyLoad");
-
         ind = 0;
         downloadImageSprite.Clear();
 
-        //uiControl.cartPanel.CloseAllCart(1f);
-
-        //for (int i = 0; i < uiControl.cartPanel.carts.Length; i++)
-        //{
-        //    await uiControl.cartPanel.carts[i].CloseCartShow(1f);
-        //}
-
         await UniTask.WhenAll(uiControl.cartPanel.carts.Select(async cart =>
         {
-           // await uiControl.cartPanel.CloseAllCart();
             downloadImageSprite.Add(await DownloadPNGImage(urlString));
         }));
 
-        for(int i = 0; i < uiControl.cartPanel.carts.Length; i++)
-        {
-            uiControl.cartPanel.carts[i].CloseCartShow(2f);
-            //uiControl.cartPanel.SetNewSprite(i, downloadImageSprite[i]);
-            uiControl.cartPanel.carts[i].SetNewImage(downloadImageSprite[i]);
-            //await uiControl.cartPanel.carts[i].OpenCartShow();
-            //await uiControl.cartPanel.OlpenAllCart();
-
-        }
-
-        await UniTask.Delay(200);
-
         for (int i = 0; i < uiControl.cartPanel.carts.Length; i++)
         {
-            uiControl.cartPanel.carts[i].OpenCartShow();
-            
+            uiControl.cartPanel.carts[i].SetNewImage(downloadImageSprite[i]);
+            uiControl.cartPanel.carts[i].FinishAllRotate(0.5f);
         }
-
-        //uiControl.cartPanel.OlpenAllCart();
-
-        uiControl.UnLockButtons();
     }
 
     public async UniTask<Sprite> DownloadPNGImage(string url)

@@ -53,7 +53,24 @@ public class CartControl : MonoBehaviour
     {
         await transform.DOLocalRotate(new Vector3(0, 90f, 0), dd, RotateMode.Fast).SetEase(Ease.Linear).AsyncWaitForCompletion();
         forwardImage.sprite = backSprite;
-        await transform.DOLocalRotate(new Vector3(0, 0f, 0), dd*0.5f, RotateMode.Fast).SetEase(Ease.Linear).AsyncWaitForCompletion();
+        await transform.DOLocalRotate(new Vector3(0, 0f, 0), dd, RotateMode.Fast).SetEase(Ease.Linear).AsyncWaitForCompletion();
     }
+    private async void StartAllRotate()
+    {
+        await transform.DOLocalRotate(new Vector3(0, 90f, 0), 0.5f, RotateMode.Fast).SetEase(Ease.InOutSine).AsyncWaitForCompletion();
+        forwardImage.sprite = forwardSprite;
+        loadImage.sprite = tmpSprite;
+        await transform.DOLocalRotate(new Vector3(0, 0f, 0), 2f, RotateMode.Fast).SetEase(Ease.InSine).AsyncWaitForCompletion();
+        panelControl.UnLockUIButtons();
+
+    }
+
+    public async void FinishAllRotate(float dd)
+    {
+        await transform.DOLocalRotate(new Vector3(0, 90f, 0), dd, RotateMode.Fast).SetEase(Ease.InOutSine).AsyncWaitForCompletion();
+        forwardImage.sprite = backSprite;
+        transform.DOLocalRotate(new Vector3(0, 0, 0), 2f, RotateMode.Fast).SetEase(Ease.InSine).OnComplete(() => StartAllRotate());
+    }
+
 
 }

@@ -16,6 +16,16 @@ public class CartPanelControl : MonoBehaviour
         uiControl = GetComponentInParent<UIControl>();
     }
 
+    public void UnLockUIButtons()
+    {
+        contCarts++;
+        if (contCarts >= carts.Length)
+        {
+            contCarts = 0;
+            uiControl.UnLockButtons();
+        }
+    }
+
 
     /*
     public void SetNewSprite(int ind, Sprite spite)
