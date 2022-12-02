@@ -21,6 +21,13 @@ public class CartControl : MonoBehaviour
     private Sprite backSprite;
 
     private Sprite tmpSprite;
+    private CartPanelControl panelControl;
+
+
+    private void Awake()
+    {
+        panelControl = GetComponentInParent<CartPanelControl>();
+    }
 
     private void Start()
     {
@@ -34,20 +41,19 @@ public class CartControl : MonoBehaviour
     }
 
 
-    private async void OpenCartShow() 
-    {
-        await transform.DOLocalRotate(new Vector3(0, 90f, 0), 2f, RotateMode.Fast).SetEase(Ease.Linear).AsyncWaitForCompletion();
-        forwardImage.sprite = forwardSprite;
-        loadImage.sprite = tmpSprite;
-        await transform.DOLocalRotate(new Vector3(0, 0f, 0), 2f, RotateMode.Fast).SetEase(Ease.Linear).AsyncWaitForCompletion();
-        //uiControl.UnLockButtons();
-    }
-
-    private async void CloseCartShow()
+    public async UniTask OpenCartShow() 
     {
         await transform.DOLocalRotate(new Vector3(0, 90f, 0), 0.5f, RotateMode.Fast).SetEase(Ease.Linear).AsyncWaitForCompletion();
+        forwardImage.sprite = forwardSprite;
+        loadImage.sprite = tmpSprite;
+        await transform.DOLocalRotate(new Vector3(0, 0f, 0), 0.5f, RotateMode.Fast).SetEase(Ease.Linear).AsyncWaitForCompletion();
+    }
+
+    public async UniTask CloseCartShow(float dd)
+    {
+        await transform.DOLocalRotate(new Vector3(0, 90f, 0), dd, RotateMode.Fast).SetEase(Ease.Linear).AsyncWaitForCompletion();
         forwardImage.sprite = backSprite;
-        transform.DOLocalRotate(new Vector3(0, 0f, 0), 1f, RotateMode.Fast).SetEase(Ease.Linear).OnComplete(() => OpenCartShow());
+        await transform.DOLocalRotate(new Vector3(0, 0f, 0), dd*0.5f, RotateMode.Fast).SetEase(Ease.Linear).AsyncWaitForCompletion();
     }
 
 }

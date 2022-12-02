@@ -1,5 +1,6 @@
+using Cysharp.Threading.Tasks;
 
 public interface ILoadOperation
 {
-    void LoadOperation();
+    UniTask LoadOperation();
 }

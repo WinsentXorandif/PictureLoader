@@ -29,18 +29,16 @@ public class OnceLoad : ILoadOperation
         cts.Cancel();
     }
 
-    public void LoadOperation()
+    public async UniTask LoadOperation()
     {
         Debug.Log("OnceLoad");
-        _ = DownloadImagesAsync();
-    }
-
-    public async UniTask DownloadImagesAsync()
-    {
-        //for (int i = 0; i < uiControl.carts.Length; i++)
+        for (int i = 0; i < uiControl.cartPanel.carts.Length; i++)
         {
-        //    uiControl.carts[i].SetNewImage(await DownloadPNGImage(urlString, "picture" + i.ToString()) );
+            await uiControl.cartPanel.carts[i].CloseCartShow(2);
+            uiControl.cartPanel.carts[i].SetNewImage(await DownloadPNGImage(urlString, "picture" + i.ToString()));
+            await uiControl.cartPanel.carts[i].OpenCartShow();
         }
+        uiControl.UnLockButtons();
     }
 
     public async UniTask<Sprite> DownloadPNGImage(string url, string name)

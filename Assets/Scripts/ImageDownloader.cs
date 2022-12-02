@@ -9,8 +9,6 @@ public static class ImageDownloader
 
     public static async UniTask<Texture2D> DownloadImage(string url, string imageName, string imageFormat, CancellationToken token)
     {
-
-
         string ImagePath = ImageDirectory + "/" + imageName + "." + imageFormat.ToLower();
 
         using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(url))

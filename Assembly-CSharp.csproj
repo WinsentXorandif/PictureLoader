@@ -58,13 +58,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ImageDownloader.cs" />
     <Compile Include="Assets\Scripts\CartControl.cs" />
+    <Compile Include="Assets\Scripts\ILoadOperation.cs" />
     <Compile Include="Assets\Scripts\UIControl.cs" />
     <Compile Include="Assets\Scripts\StartGame.cs" />
     <Compile Include="Assets\Scripts\ImageUtilities.cs" />
-    <Compile Include="Assets\Scripts\LoadOperation.cs" />
-    <Compile Include="Assets\Scripts\ILoadOperation.cs" />
-    <Compile Include="Assets\Scripts\OnceLoad.cs" />
     <Compile Include="Assets\Scripts\MultyLoad.cs" />
+    <Compile Include="Assets\Scripts\OnceLoad.cs" />
+    <Compile Include="Assets\Scripts\LoadOperation.cs" />
     <Compile Include="Assets\Scripts\CartPanelControl.cs" />
   </ItemGroup>
   <ItemGroup>
