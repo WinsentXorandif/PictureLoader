@@ -72,5 +72,12 @@ public class CartControl : MonoBehaviour
         transform.DOLocalRotate(new Vector3(0, 0, 0), 2f, RotateMode.Fast).SetEase(Ease.InSine).OnComplete(() => StartAllRotate());
     }
 
+    public async UniTask FinishAllRotateReady(float dd)
+    {
+        await transform.DOLocalRotate(new Vector3(0, 90f, 0), dd, RotateMode.Fast).SetEase(Ease.InOutCirc).AsyncWaitForCompletion();
+        forwardImage.sprite = backSprite;
+        await transform.DOLocalRotate(new Vector3(0, 0, 0), dd, RotateMode.Fast).SetEase(Ease.InCirc).AsyncWaitForCompletion();
+    }
+
 
 }

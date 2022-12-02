@@ -29,7 +29,7 @@ public class StartGame : MonoBehaviour
     {
         LoadOperationsDict.Add(LoadOperation.oneByOne, new OnceLoad(ImageURL, uiControl));
         LoadOperationsDict.Add(LoadOperation.allAtOnce, new MultyLoad(ImageURL, uiControl));
-        LoadOperationsDict.Add(LoadOperation.whenImageReady, new MultyLoad(ImageURL, uiControl));
+        LoadOperationsDict.Add(LoadOperation.whenImageReady, new ReadyLoad(ImageURL, uiControl));
     }
 
     private void Awake()

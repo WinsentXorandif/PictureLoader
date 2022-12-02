@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\OnceLoad.cs" />
     <Compile Include="Assets\Scripts\LoadOperation.cs" />
     <Compile Include="Assets\Scripts\CartPanelControl.cs" />
+    <Compile Include="Assets\Scripts\ReadyLoad.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
