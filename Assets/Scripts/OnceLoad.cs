@@ -12,24 +12,23 @@ public class OnceLoad : ILoadOperation
     private string urlString;
     private UIControl uiControl;
 
-    private CancellationTokenSource cts = new CancellationTokenSource();
+    private CancellationTokenSource cts;
 
 
     public OnceLoad(string url, UIControl uI) 
     {
         urlString = url;
         uiControl = uI;
-
-        uiControl.OnCancelButton += ONCansel;
     }
 
-    private void ONCansel() 
+    public void ONCansel() 
     {
-        cts.Cancel();
+        cts?.Cancel();
     }
 
     public async UniTask LoadOperation()
     {
+        cts = new CancellationTokenSource();
         for (int i = 0; i < uiControl.cartPanel.carts.Length; i++)
         {
             await uiControl.cartPanel.carts[i].CloseCartShow(0.5f);

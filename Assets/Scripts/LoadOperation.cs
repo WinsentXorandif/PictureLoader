@@ -2,5 +2,6 @@ public enum LoadOperation
 {
     allAtOnce,
     oneByOne,
-    whenImageReady
+    whenImageReady,
+    none
 }

@@ -10,7 +10,7 @@ public class ReadyLoad : ILoadOperation
     private string urlString;
     private UIControl uiControl;
 
-    private CancellationTokenSource cts = new CancellationTokenSource();
+    private CancellationTokenSource cts; 
     private int ind;
 
     public ReadyLoad(string url, UIControl uI)
@@ -18,20 +18,18 @@ public class ReadyLoad : ILoadOperation
         ind = 0;
         urlString = url;
         uiControl = uI;
-
-        uiControl.OnCancelButton += ONCansel;
-
     }
 
-    private void ONCansel()
+    public void ONCansel()
     {
-        cts.Cancel();
+        cts?.Cancel();
     }
 
 
     public async UniTask LoadOperation()
     {
         ind = 0;
+        cts = new CancellationTokenSource();
 
         foreach (var cc in uiControl.cartPanel.carts) 
         {

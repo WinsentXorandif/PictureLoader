@@ -8,25 +8,16 @@ public class StartGame : MonoBehaviour
 {
     private const string ImageURL = "https://picsum.photos/200";
 
-    private readonly List<string> ImageURLs = new();
-
     private Dictionary<LoadOperation, ILoadOperation> LoadOperationsDict = new();
+
+    private LoadOperation tmpOper;
 
     [SerializeField]
     private UIControl uiControl;
 
-
-
-    private void InitURLlist() 
-    {
-        for (int i = 0; i < uiControl.cartPanel.carts.Length; i++)
-        {
-            ImageURLs.Add(ImageURL);
-        }
-    }
-
     private void InitOperationDict() 
     {
+        LoadOperationsDict.Add(LoadOperation.none, new NoneLoad());
         LoadOperationsDict.Add(LoadOperation.oneByOne, new OnceLoad(ImageURL, uiControl));
         LoadOperationsDict.Add(LoadOperation.allAtOnce, new MultyLoad(ImageURL, uiControl));
         LoadOperationsDict.Add(LoadOperation.whenImageReady, new ReadyLoad(ImageURL, uiControl));
@@ -34,7 +25,7 @@ public class StartGame : MonoBehaviour
 
     private void Awake()
     {
-        InitURLlist();
+        tmpOper = LoadOperation.none;
         InitOperationDict();
     }
 
@@ -52,12 +43,13 @@ public class StartGame : MonoBehaviour
 
     private void OnLoadPicture(int opt)
     {
-        LoadOperationsDict[(LoadOperation)opt].LoadOperation();
+        tmpOper = (LoadOperation)opt;
+        LoadOperationsDict[tmpOper].LoadOperation();
     }
 
     private void OnCancel()
     {
-        Debug.Log("OnCancel");
+        LoadOperationsDict[tmpOper].ONCansel();
     }
 
 }

@@ -50,6 +50,7 @@ public class UIControl : MonoBehaviour
     private void OnButtonCancelNew()
     {
         OnCancelButton?.Invoke();
+        UnLockButtons();
     }
 
 
